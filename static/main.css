@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+:root {
+    --off-white: #eff2f7;
+    --circuit-blue: #364e71;
+    }
+html, body {
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+    min-width: 100vw;
+}
+body {
+    font-family: 'Nunito', sans-serif;
+}
+.page {
+    min-height: 90vh;
+    min-width: 90vw;
+    padding: 5vh 5vw;
+}
+.container {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+}
+.vcontainer {
+    flex-direction: column;
+}
+.hcontainer {
+    flex-direction: row;
+}
+.iconcontainer {
+    justify-content: center;
+    height: 13vmin;
+    width: 13vmin;
+    min-height: 40px;
+}
+h1 {
+    font-weight: bolder;
+    margin: 0;
+    padding-top: max(3vh, 10px);
+    padding-bottom: max(3vh, 10px);;
+    text-transform: uppercase;
+    font-size: max(5vmin, 30px);
+    text-align: center;
+}
+p {
+    text-align: center;
+    font-size: 22px;
+    margin: 0;
+    padding-top: max(3vh, 10px);
+    padding-bottom: max(3vh, 10px);
+}
+.icon {
+    height: 10vmin;
+    width: auto;
+    min-height: 35px;
+    transition: height 0.25s;
+    display: block;
+}
+.icon:hover {
+    height: 12vmin;
+    width: auto;
+    min-height: 40px;
+    opacity: 80%;
+}
+.iconbar {
+    height: 12vmin;
+    padding-top: max(3vh, 10px);
+}
