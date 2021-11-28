@@ -18,11 +18,18 @@ def generate_data() -> (float, float):
 app = dash.Dash(__name__,
                 external_stylesheets=['static/main.css'])
 
+figure_margin = go.layout.Margin(b=0, l=0, r=0, t=0)
 live_update_graph_1 = dcc.Graph(id='live_update_graph_1',
                                 animate=False,
+                                style={'width': '100%'},
                                 config={'displayModeBar': False,
                                         'staticPlot': True},
-                                figure=go.Figure(go.Scatter(x=[], y=[], mode='lines')))
+                                figure=go.Figure(go.Scatter(x=[], y=[], mode='lines'),
+                                                 layout={'xaxis_title': "Time (s)",
+                                                         'yaxis_title': "X",
+                                                         'font': {'family': "Nunito, sans-serif",
+                                                                  'size': 12},
+                                                         'margin': figure_margin}))
 
 app.layout = html.Div([
     html.Div([
@@ -30,16 +37,16 @@ app.layout = html.Div([
         live_update_graph_1,
         dcc.Interval(id='update_timer_1',
                      interval=REFRESH_RATE_MS)
-    ], className="container vcontainer content")
-], className="container vcontainer page")
+    ], className='container vcontainer')
+], className='page')
 
 
 @app.callback(Output('live_update_graph_1', 'extendData'),
               Input('update_timer_1', 'n_intervals'))
 def update_graph_1(n_intervals: int):
     new_x, new_y = generate_data()
-    return dict(x=[[new_x]],
-                y=[[new_y]]), [0], None
+    return {'x': [[new_x]],
+            'y': [[new_y]]}, [0], None
 
 
 if __name__ == '__main__':

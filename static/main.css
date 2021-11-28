@@ -24,6 +24,7 @@ body {
     align-items: center;
     background-size: cover;
     background-position: center;
+    width: 100%;
 }
 .vcontainer {
     flex-direction: column;
