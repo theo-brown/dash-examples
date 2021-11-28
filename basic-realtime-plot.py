@@ -16,7 +16,8 @@ def generate_data() -> (float, float):
 
 
 app = dash.Dash(__name__,
-                external_stylesheets=['static/main.css'])
+                external_stylesheets=['static/main.css'],
+                update_title=None)
 
 figure_margin = go.layout.Margin(b=0, l=0, r=0, t=0)
 live_update_graph_1 = dcc.Graph(id='live_update_graph_1',
