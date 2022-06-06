@@ -1,5 +1,4 @@
 from time import time
-from turtle import update
 from typing import Tuple
 import dash
 import plotly.graph_objects as go
